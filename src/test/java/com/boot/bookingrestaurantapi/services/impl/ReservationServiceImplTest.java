@@ -64,12 +64,11 @@ public class ReservationServiceImplTest {
 		RESERVATION.setRestaurant(RESTAURANT);
 		
 		
-		
 	}
 	
 	@Test
-	public void testGetReservation() throws BookingException {
-
+	public void testGetReservation() throws BookingException {		
+		
 		Mockito.when(reservationRepository.findById(RESERVATION_ID)).thenReturn(OPTIONAL_RESERVATION);
 		
 		ReservationRest response = reservationServiceImpl.getReservation(RESERVATION_ID);
