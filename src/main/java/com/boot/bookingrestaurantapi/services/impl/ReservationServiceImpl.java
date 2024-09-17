@@ -47,7 +47,9 @@ public class ReservationServiceImpl implements ReservationService {
 		final Turn turn = turnRepository.findById(createReservationRest.getTurnId())
 				.orElseThrow(() -> new NotFountException("TURN_NOT_FOUND", "TURN_NOT_FOUND"));
 
-		if (reservationRepository.findByTurnAndRestaurantId(turn.getName(), restaurantId.getId()).isPresent()) {
+		if (reservationRepository.findByTurnAndRestaurantId(
+				turn.getName(), 
+				restaurantId.getId()).isPresent()) {
 			throw new NotFountException("RESERVATION_ALREADT_EXIST", "RESERVATION_ALREADT_EXIST");
 		}
 
